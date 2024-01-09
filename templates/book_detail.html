@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ book.title }}</title>
+</head>
+<body>
+    <h1>{{ book.title }}</h1>
+    <p>Authors: {{ book.authors.all|join:', ' }}</p>
+  
+    <p>Publication Date: {{ book.publication_date }}</p>
+    <a href="{% url 'book_confirm_edit' pk=book.pk %}">Edit</a>
+    <a href="{% url 'book_confirm_delete' pk=book.pk %}">Delete</a>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!-- book_confirm_add.html -->
+
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Confirm Book Addition</h1>
+  
+  <p>Are you sure you want to add the following book?</p>
+  
+  <dl>
+    <dt>Title:</dt>
+    <dd>{{ book.title }}</dd>
+    
+    <dt>Authors:</dt>
+    <dd>{{ book.authors.all|join:', ' }}</dd>
+    
+    
+    <dt>Publication Date:</dt>
+    <dd>{{ book.publication_date }}</dd>
+  </dl>
+
+  <form method="post" action="{% url 'book_create' %}">
+    {% csrf_token %}
+    <button type="submit">Confirm Add</button>
+  </form>
+
+  <p><a href="{% url 'book_list' %}">Cancel</a></p>
+{% endblock %}

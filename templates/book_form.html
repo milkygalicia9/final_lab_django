@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if not book %}New Book{% else %}Edit Book{% endif %}</title>
+</head>
+<body>
+    <h1>{% if not book %}New Book{% else %}Edit Book{% endif %}</h1>
+    <form method="post" action="{% if not book %}{% url 'book_create' %}{% else %}{% url 'book_confirm_edit' pk=book.pk %}{% endif %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'book_list' %}">Back to Book List</a>
+</body>
+</html>

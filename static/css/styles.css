@@ -1,0 +1,25 @@
+/* static/css/styles.css */
+
+body {
+    background-image: url('/static/image/rr.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh; /* Use viewport height for full-screen background */
+    margin: 0;
+    padding-top: 56px;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+#content {
+    padding: 20px; /* Added padding for content area */
+}
+
+footer {
+    margin-top: 20px;
+    padding: 10px 0;
+    background-color: #b71ca7;
+}

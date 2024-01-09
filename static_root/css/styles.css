@@ -1,0 +1,29 @@
+/* static/css/styles.css */
+
+body {
+    background-image: url('/static_root/image/rr.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100%;
+    margin: 0;
+    padding-top: 56px;
+    background-color: #b35eaa;
+}
+
+
+
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+#content {
+    min-height: 400px; /* Adjusted for content space */
+}
+
+footer {
+    margin-top: 20px;
+    padding: 10px 0;
+    background-color: #b35eaa;
+}

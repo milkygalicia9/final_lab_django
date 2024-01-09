@@ -1,0 +1,75 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #c9aeae;
+        }
+    </style>
+</head>
+<body>
+    <h1>Book List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Authors</th>
+                <th>Publication Date</th>
+                <a href="{% url 'book_create' %}">Add New Book</a>
+            </tr>
+           
+        </thead>
+        <tbody>
+            {% for book in books %}
+          
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.authors.all|join:', ' }}</td>
+                    <td>{{ book.publication_date }}</td>
+                    <td>
+                      
+                   
+                        <a href="{% url 'book_detail' pk=book.pk %}">View details</a>
+                    </td>
+                </tr>
+            {% endfor %}            
+        </tbody>
+    </table>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if books.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ books.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+             
+            </span>
+
+            {% if books.has_next %}
+                <a href="?page={{ books.next_page_number }}">next</a>
+                <a href="?page={{ books.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+      
+    {% include 'pagination.html' with books=books %}
+    
+</body>
+</html>
+{% endblock %}
